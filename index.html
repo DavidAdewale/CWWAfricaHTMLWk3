@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+      :root {
+        --color-bg: #dbd0c4;
+        --color-white: #f3f5f5;
+        --color-purple: #a00aae;
+        --color-purple-dark: #4a154d;
+        --transition: all 0.2s;
+      }
+
+      body {
+        background-color: var(--color-bg);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Questrial', sans-serif;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-bottom: 6rem;
+      }
+
+      label {
+        font-weight: 600;
+      }
+
+      form div {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      button {
+        align-self: center;
+        padding: 1rem 4rem;
+        border-radius: 2rem;
+        border: none;
+        background-color: var(--color-purple);
+        color: var(--color-bg);
+        font: inherit;
+        cursor: pointer;
+        transition: var(--transition);
+      }
+
+      button:hover {
+        background-color: var(--color-purple-dark);
+      }
+
+      input {
+        font-family: inherit;
+      }
+
+      input[type='file'] {
+        font-family: inherit;
+      }
+
+      input[type='file']::file-selector-button {
+        font-family: inherit;
+        background-color: var(--color-purple);
+        color: var(--color-white);
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 2rem;
+        cursor: pointer;
+        transition: var(--transition);
+      }
+
+      input[type='file']::file-selector-button:hover {
+        background-color: var(--color-purple-dark);
+      }
+
+      input[type='date'] {
+        height: 2rem;
+        border: none;
+        border-radius: 0.3rem;
+        font-family: inherit;
+      }
+
+      input[type='date']:focus {
+        outline: 2px solid var(--color-purple);
+      }
+
+      input:not([type='file']):not([type='date']) {
+        background-color: var(--color-white);
+        border: none;
+        height: 1.5rem;
+        outline: none;
+        border-radius: 0.3rem;
+      }
+      textarea {
+        border: none;
+        border-radius: 0.3rem;
+        font-family: inherit;
+      }
+
+      input:not([type='file']):not([type='date']):focus,
+      textarea:focus {
+        outline: 2px solid var(--color-purple);
+      }
+    </style>
+    <title>David Adewale | HTML Form</title>
+  </head>
+  <body>
+    <h2>Contact Us</h2>
+    <form action="/submit" method="post" enctype="multipart/form-data">
+      <div>
+        <label for="name">Name:</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Full name"
+          required
+        />
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="E-mail"
+          required
+        />
+      </div>
+      <div>
+        <label for="message">Message:</label>
+        <textarea
+          id="message"
+          name="message"
+          rows="4"
+          placeholder="Your message"
+          required
+        ></textarea>
+      </div>
+      <div>
+        <label for="avatar">Upload Avatar:</label>
+        <input type="file" id="avatar" name="avatar" accept="image/*" />
+      </div>
+      <div>
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required />
+      </div>
+
+      <button type="submit">Submit</button>
+    </form>
+    <footer>
+      <hr />
+      &copy; <span id="year"> </span> <strong>David Adewale</strong> | Trainee
+      ID:
+      <strong>33644</strong>
+    </footer>
+    <script>
+      const currentYear = new Date().getFullYear();
+      document.getElementById('year').textContent = currentYear;
+    </script>
+  </body>
+</html>
